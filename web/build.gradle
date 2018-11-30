@@ -1,0 +1,9 @@
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE") {
+        exclude(module: 'javax.annotation-api')
+        exclude(module: 'java-annotation')
+        exclude(module: 'spring-boot-starter-logging')
+    }
+}
+
+ext.moduleName = 'com.kg.formulaone.web'

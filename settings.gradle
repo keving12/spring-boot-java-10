@@ -1,0 +1,6 @@
+rootProject.name = 'formula-one-stats'
+
+include 'main'
+include 'web'
+include 'service'
+
