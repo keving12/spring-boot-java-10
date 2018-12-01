@@ -1,5 +1,6 @@
 package com.kg.formulaone.controllers;
 
+import com.kg.formulaone.api.ChampionshipService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,11 +8,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ChampionController {
 
-    @GetMapping("/champion/{year}")
-    public String championshipWinner(@PathVariable("year") int year) {
-        if(year == 2008) {
-            return "Lewis Hamilton";
-        }
-        return "Unknown";
+    private ChampionshipService championshipService;
+
+    public ChampionController(ChampionshipService championshipService) {
+        this.championshipService = championshipService;
+    }
+
+    @GetMapping("/driver/{year}")
+    public String winningDriver(@PathVariable("year") int year) {
+        return championshipService.winners(year).getDriver();
+    }
+
+    @GetMapping("/constructor/{year}")
+    public String winningConstructor(@PathVariable("year") int year) {
+        return championshipService.winners(year).getConstructor();
     }
 }

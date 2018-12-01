@@ -1,1 +1,15 @@
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.10
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
+        exclude(module: 'javax.annotation-api')
+        exclude(module: 'java-annotation')
+        exclude(module: 'spring-boot-starter-logging')
+    }
+
+    testImplementation "org.spockframework:spock-core:${spockVersion}"
+}
+
 ext.moduleName = 'com.kg.formulaone.service'
