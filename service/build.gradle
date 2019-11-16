@@ -1,7 +1,5 @@
 apply plugin: 'groovy'
 
-sourceCompatibility = 1.10
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
         exclude(module: 'javax.annotation-api')
